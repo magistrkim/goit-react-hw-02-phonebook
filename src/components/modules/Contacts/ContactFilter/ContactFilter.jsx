@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './contact-filter.module.css';
 
-const ContactFilter = ({handleChange}) => {
+const ContactFilter = ({ handleChange }) => {
   return (
     <>
       <label className={css.label} htmlFor="">
@@ -25,5 +25,5 @@ const ContactFilter = ({handleChange}) => {
 export default ContactFilter;
 
 ContactFilter.propTypes = {
-    handleChange: PropTypes.func.isRequired,
-  };
+  handleChange: PropTypes.func.isRequired,
+};
