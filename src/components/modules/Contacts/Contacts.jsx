@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import ContactList from './ContactList/ContactList';
+import ContactFilter from './ContactFilter/ContactFilter';
 import css from './contacts.module.css';
 
 class Contacts extends Component {
@@ -16,13 +18,13 @@ class Contacts extends Component {
     filter: '',
   };
 
-  removeContact(id) {
+  removeContact = id => {
     this.setState(({ contacts }) => {
       const newContacts = contacts.filter(contact => contact.id !== id);
       return { contacts: newContacts };
     });
     return Notify.info(`The contact has been removed from the contact list!`);
-  }
+  };
 
   addContact = event => {
     event.preventDefault();
@@ -78,23 +80,10 @@ class Contacts extends Component {
   }
 
   render() {
-    const { addContact, handleChange } = this;
+    const { addContact, handleChange, removeContact } = this;
     const { name, number } = this.state;
     const contacts = this.getFilteredContacts();
-    const contactItems = contacts.map(({ id, name, number }) => (
-      <li key={id} className={css.item}>
-        {name}: {number}
-        <button
-          onClick={() => {
-            this.removeContact(id);
-          }}
-          className={css.item__btn}
-          type="button"
-        >
-          Delete
-        </button>
-      </li>
-    ));
+
     return (
       <>
         <div className={css.section}>
@@ -143,21 +132,10 @@ class Contacts extends Component {
           <div className={css.wrapper}>
             <h2 className={css.title}>Contacts</h2>
             <div className={css.block}>
-              <label className={css.label} htmlFor="">
-                Find contacts by name
-              </label>
-              <input
-                className={css.input}
-                onChange={handleChange}
-                placeholder="Please, type the name"
-                type="text"
-                name="filter"
-                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                title="Name may contain only letters, apostrophe, dash and spaces. 
-                For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                required
+              <ContactFilter
+                handleChange={handleChange}
               />
-              <ul className={css.list}>{contactItems}</ul>
+              <ContactList removeContact={removeContact} contacts={contacts} />
             </div>
           </div>
         </div>

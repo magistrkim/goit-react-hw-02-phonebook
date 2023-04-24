@@ -1,0 +1,19 @@
+.item__btn {
+    min-height: 20px;
+    cursor: pointer;
+    background-color: rgb(246, 111, 1);
+    font-size: 12px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 4px 4px rgba(29, 2, 55, 0.5);
+}
+.list {
+    display: grid;
+    gap: 10px;
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}

@@ -1,0 +1,12 @@
+.label {
+    display: block;
+    margin-bottom: 8px;
+    color: darkslateblue;
+    font-size: 24px;
+    font-weight: 500;
+}
+.input {
+    display: block;
+    min-width: 80%;
+    min-height: 20px;
+}
