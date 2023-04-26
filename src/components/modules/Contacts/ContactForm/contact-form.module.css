@@ -1,0 +1,33 @@
+.block {
+    min-height: 20px;
+    width: 400px;
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 20px;
+    background-color: rgb(235, 233, 233);
+    box-shadow: 2px 4px 10px rgba(29, 2, 55, 0.5);
+}
+.label {
+    display: block;
+    margin-bottom: 8px;
+    color: darkslateblue;
+    font-size: 24px;
+    font-weight: 500;
+}
+.input {
+    display: block;
+    min-width: 80%;
+    min-height: 20px;
+}
+.btn {
+    min-height: 28px;
+    margin-top: 10px;
+    display: block;
+    cursor: pointer;
+    background-color: darkslateblue;
+    font-size: 14px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 4px 4px rgba(29, 2, 55, 0.5);
+}
